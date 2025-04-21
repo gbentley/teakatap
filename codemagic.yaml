@@ -1,0 +1,28 @@
+workflows:
+  android-app:
+    name: Build MaoriDict APK
+    environment:
+      vars:
+        PACKAGE_NAME: "com.example.maoridict"
+      android:
+        image: latest
+      java: 17
+
+    scripts:
+      - name: Set up Gradle wrapper
+        script: |
+          chmod +x ./gradlew
+
+      - name: Clean project
+        script: ./gradlew clean
+
+      - name: Build debug APK
+        script: ./gradlew assembleDebug
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+
+    publishing:
+      email:
+        recipients:
+          - your.email@example.com

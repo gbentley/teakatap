@@ -4,9 +4,10 @@ workflows:
     environment:
       vars:
         PACKAGE_NAME: "com.example.maoridict"
-      android:
-        image: latest
+      flutter: false
+      xcode: none
       java: 17
+      image: ubuntu-latest
 
     scripts:
       - name: Set up Gradle wrapper
@@ -25,4 +26,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - your.email@example.com
+          - geoffthetechnical@gmail.com
